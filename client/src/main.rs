@@ -24,9 +24,9 @@ mod status;
 mod sys_info;
 mod vnstat;
 
-static CU: &str = "cu.tz.cloudcpp.com:80";
-static CT: &str = "ct.tz.cloudcpp.com:80";
-static CM: &str = "cm.tz.cloudcpp.com:80";
+static CU: &str = "tyo.tcping.muua.org:80";
+static CT: &str = "sel.tcping.muua.org:80";
+static CM: &str = "hkg.tcping.muua.org:80";
 
 #[derive(Default)]
 pub struct ClientConfig {
