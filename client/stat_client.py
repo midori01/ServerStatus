@@ -499,12 +499,12 @@ def skip_iface(name, options):
 def main():
     usage = """usage: python3 %prog [options] arg
     eg:
-        python3 %prog -a http://127.0.0.1:8080/report -u h1 -p p1
-        python3 %prog -a http://127.0.0.1:8080/report -u h1 -p p1 -n
+        python3 %prog -a http://127.0.0.1:9393/report -u TEST1 -p password
+        python3 %prog -a http://127.0.0.1:9393/report -u TEST1 -p password -n
     """
     parser = OptionParser(usage)
 
-    parser.add_option("-a", "--addr", dest="addr", default="http://127.0.0.1:8080/report",
+    parser.add_option("-a", "--addr", dest="addr", default="http://127.0.0.1:9393/report",
                       help="http/tcp addr [default: %default]")
     parser.add_option("-u", "--user", dest="username",
                       default="h1", help="auth user [default: %default]")
