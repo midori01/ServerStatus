@@ -324,7 +324,7 @@ if __name__ == "__main__":
 
     usage = """usage: python3 %prog [options] arg
     eg:
-        python3 %prog -a http://127.0.0.1:8080/report -u h1 -p p1 --esxiuser root --esxipasswd password --esxiaddr 192.169.1.2 --esxiport 443
+        python3 %prog -a http://127.0.0.1:9393/report -u TEST1 -p password --esxiuser root --esxipasswd password --esxiaddr 192.169.1.2 --esxiport 443
     """
     parser = OptionParser(usage)
 
