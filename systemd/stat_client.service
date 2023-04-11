@@ -8,7 +8,7 @@ Group=root
 Environment="RUST_BACKTRACE=1"
 WorkingDirectory=/opt/ServerStatus
 # EnvironmentFile=/opt/ServerStatus/.env
-ExecStart=/opt/ServerStatus/stat_client -a "http://127.0.0.1:8080/report" -u h1 -p p1
+ExecStart=/opt/ServerStatus/stat_client -a "http://127.0.0.1:9393/report" -u TEST1 -p password
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 
