@@ -13,10 +13,10 @@ fn default_as_true() -> bool {
     true
 }
 fn default_grpc_addr() -> String {
-    "0.0.0.0:9394".to_string()
+    "[::]:9394".to_string()
 }
 fn default_http_addr() -> String {
-    "0.0.0.0:8080".to_string()
+    "[::]:9393".to_string()
 }
 fn default_workspace() -> String {
     "/opt/ServerStatus".to_string()
