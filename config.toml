@@ -1,6 +1,6 @@
-# 侦听地址, ipv6 使用 [::]:9394
-grpc_addr = "0.0.0.0:9394"
-http_addr = "0.0.0.0:8080"
+# 侦听地址
+grpc_addr = "[::]:9394"
+http_addr = "[::]:9393"
 # 默认30s无上报判定下线
 offline_threshold = 30
 
