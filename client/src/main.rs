@@ -40,11 +40,11 @@ pub static G_CONFIG: Lazy<Mutex<ClientConfig>> = Lazy::new(|| Mutex::new(ClientC
 #[derive(Parser, Debug, Clone)]
 #[command(author, version = env!("APP_VERSION"), about, long_about = None)]
 pub struct Args {
-    #[arg(short, long, env = "SSR_ADDR", default_value = "http://127.0.0.1:8080/report")]
+    #[arg(short, long, env = "SSR_ADDR", default_value = "http://127.0.0.1:9393/report")]
     addr: String,
-    #[arg(short, long, env = "SSR_USER", default_value = "h1", help = "username")]
+    #[arg(short, long, env = "SSR_USER", default_value = "TEST1", help = "username")]
     user: String,
-    #[arg(short, long, env = "SSR_PASS", default_value = "p1", help = "password")]
+    #[arg(short, long, env = "SSR_PASS", default_value = "password", help = "password")]
     pass: String,
     #[arg(short = 'n', long, env = "SSR_VNSTAT", help = "enable vnstat, default:false")]
     vnstat: bool,
@@ -80,11 +80,11 @@ pub struct Args {
         help = "disable extra info report, default:false"
     )]
     disable_extra: bool,
-    #[arg(long = "ct",  env = "SSR_CT_ADDR", default_value = CT, help = "China Telecom probe addr")]
+    #[arg(long = "ct",  env = "SSR_CT_ADDR", default_value = CT, help = "Seoul")]
     ct_addr: String,
-    #[arg(long = "cm",  env = "SSR_CM_ADDR", default_value = CM, help = "China Mobile probe addr")]
+    #[arg(long = "cm",  env = "SSR_CM_ADDR", default_value = CM, help = "Hong Kong")]
     cm_addr: String,
-    #[arg(long = "cu",  env = "SSR_CU_ADDR", default_value = CU, help = "China Unicom probe addr")]
+    #[arg(long = "cu",  env = "SSR_CU_ADDR", default_value = CU, help = "Tokyo")]
     cu_addr: String,
     #[arg(long = "sys-info", help = "show sys info, default:false")]
     sys_info: bool,
