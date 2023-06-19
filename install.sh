@@ -67,11 +67,11 @@ if [[ $1 == "update" ]]; then
   exit 0
 fi
 if [[ $1 == "uninstall_client" ]]; then
-  uninstall
+  uninstall_client
   exit 0
 fi
 if [[ $1 == "update_client" ]]; then
-  update
+  update_client
   exit 0
 fi
 mkdir -p ${WORKSPACE}
