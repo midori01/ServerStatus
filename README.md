@@ -1,1 +1,5 @@
-# serverstatus
+# ServerStatus
+`Install Server`
+```bash
+
+```
