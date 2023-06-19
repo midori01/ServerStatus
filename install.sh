@@ -25,16 +25,6 @@ fi
 WORKSPACE=/opt/ServerStatus
 latest_version=$(curl -m 10 -sL "https://api.github.com/repos/midori01/serverstatus/releases/latest" | grep "tag_name" | head -n 1 | awk -F ":" '{print $2}' | sed 's/\"//g;s/,//g;s/ //g')
 
-if [[ $1 == "uninstall" ]]; then
-  uninstall
-  exit 0
-fi
-
-if [[ $1 == "update" ]]; then
-  update
-  exit 0
-fi
-
 uninstall() {
   systemctl stop stat_server.service
   systemctl disable stat_server.service
@@ -45,6 +35,7 @@ uninstall() {
 
 update() {
   rm -f ${WORKSPACE}/stat_server
+  mkdir -p ${WORKSPACE}/update
   cd ${WORKSPACE}/update
   wget --no-check-certificate -qO "server-${OS_ARCH}-unknown-linux-musl.zip"  "https://github.com/midori01/serverstatus/releases/download/${latest_version}/server-${OS_ARCH}-unknown-linux-musl.zip"
   unzip -o "server-${OS_ARCH}-unknown-linux-musl.zip"
@@ -53,6 +44,15 @@ update() {
   systemctl restart stat_server.service
   echo "ServerStatus-Server 已更新"
 }
+
+if [[ $1 == "uninstall" ]]; then
+  uninstall
+  exit 0
+fi
+if [[ $1 == "update" ]]; then
+  update
+  exit 0
+fi
 
 mkdir -p ${WORKSPACE}
 cd ${WORKSPACE}
