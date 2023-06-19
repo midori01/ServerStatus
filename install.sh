@@ -40,11 +40,37 @@ update() {
   systemctl restart stat_server.service
   echo "ServerStatus-Server 已更新"
 }
+uninstall_client() {
+  systemctl stop stat_client.service
+  systemctl disable stat_client.service
+  rm -f /etc/systemd/system/stat_client.service
+  rm -f ${WORKSPACE}/stat_client
+  echo "ServerStatus-Client 已卸载"
+}
+update_client() {
+  rm -f ${WORKSPACE}/stat_client
+  mkdir -p ${WORKSPACE}/update
+  cd ${WORKSPACE}/update
+  wget --no-check-certificate -qO "client-${OS_ARCH}-unknown-linux-musl.zip"  "https://github.com/midori01/serverstatus/releases/download/${latest_version}/client-${OS_ARCH}-unknown-linux-musl.zip"
+  unzip -o "client-${OS_ARCH}-unknown-linux-musl.zip"
+  mv stat_client ${WORKSPACE}/stat_client
+  rm -r ${WORKSPACE}/update
+  systemctl restart stat_client.service
+  echo "ServerStatus-Client 已更新"
+}
 if [[ $1 == "uninstall" ]]; then
   uninstall
   exit 0
 fi
 if [[ $1 == "update" ]]; then
+  update
+  exit 0
+fi
+if [[ $1 == "uninstall_client" ]]; then
+  uninstall
+  exit 0
+fi
+if [[ $1 == "update_client" ]]; then
   update
   exit 0
 fi
