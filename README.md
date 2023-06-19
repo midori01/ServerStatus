@@ -1,1 +1,1 @@
-# serverstatus
+# serverstatus-japanese
